@@ -9,3 +9,4 @@ SpeechRecognition
 Django
 beautifulsoup4
 seaborn
+streamlit
