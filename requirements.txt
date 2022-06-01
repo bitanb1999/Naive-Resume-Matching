@@ -2,9 +2,10 @@ nltk
 tqdm
 gensim
 tensorflow
-pytorch
 matplotlib
 spacy
 wordcloud
 SpeechRecognition
 Django
+beautifulsoup4
+seaborn
