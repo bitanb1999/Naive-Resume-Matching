@@ -41,7 +41,7 @@ if len(Jobs['Name']) > 1:
     option_yn = st.selectbox(
         "Show the Job Description Names?", options=['YES', 'NO'])
     if option_yn == 'YES':
-        index = [a for a in range(len(Jobs['Name']))]
+        index = list(range(len(Jobs['Name'])))
         fig = go.Figure(data=[go.Table(header=dict(values=["Job No.", "Job Desc. Name"], line_color='darkslategray',
                                                    fill_color='lightskyblue'),
                                        cells=dict(values=[index, Jobs['Name']], line_color='darkslategray',
@@ -90,7 +90,8 @@ Ranked_resumes = Resumes.sort_values(
     by=['Scores'], ascending=False).reset_index(drop=True)
 
 Ranked_resumes['Rank'] = pd.DataFrame(
-    [i for i in range(1, len(Ranked_resumes['Scores'])+1)])
+    list(range(1, len(Ranked_resumes['Scores']) + 1))
+)
 
 ###################################### SCORE TABLE PLOT ####################################
 
@@ -187,7 +188,7 @@ for i, ax in enumerate(axes.flatten()):
     topic_words = dict(topics[i][1])
     cloud.generate_from_frequencies(topic_words, max_font_size=300)
     plt.gca().imshow(cloud)
-    plt.gca().set_title('Topic ' + str(i), fontdict=dict(size=16))
+    plt.gca().set_title(f'Topic {str(i)}', fontdict=dict(size=16))
     plt.gca().axis('off')
 
 

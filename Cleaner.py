@@ -32,22 +32,17 @@ def _get_target_words(text):
     Takes in text and uses Spacy Tags on it, to extract the relevant Noun, Proper Noun words that contain words related to tech and JD. 
 
     """
-    target = []
     sent = " ".join(text)
     doc = nlp(sent)
-    for token in doc:
-        if token.tag_ in ['NN', 'NNP']:
-            target.append(token.text)
-    return target
+    return [token.text for token in doc if token.tag_ in ['NN', 'NNP']]
 
 
 # https://towardsdatascience.com/overview-of-text-similarity-metrics-3397c4601f50
 # https://towardsdatascience.com/the-best-document-similarity-algorithm-in-2020-a-beginners-guide-a01b9ef8cf05
 
 def Cleaner(text):
-    sentence = []
     sentence_cleaned = _base_clean(text)
-    sentence.append(sentence_cleaned)
+    sentence = [sentence_cleaned]
     sentence_reduced = _reduce_redundancy(sentence_cleaned)
     sentence.append(sentence_reduced)
     sentence_targetted = _get_target_words(sentence_reduced)
