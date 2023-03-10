@@ -17,8 +17,7 @@ document = []
 def read_resumes(list_of_resumes, resume_directory):
     placeholder = []
     for res in list_of_resumes:
-        temp = []
-        temp.append(res)
+        temp = [res]
         text = tx.process(resume_directory+res, encoding='ascii')
         text = str(text, 'utf-8')
         temp.append(text)
@@ -53,8 +52,7 @@ Database.to_csv("Resume_Data.csv", index=False)
 def read_jobdescriptions(job_description_names, job_desc_dir):
     placeholder = []
     for tes in job_description_names:
-        temp = []
-        temp.append(tes)
+        temp = [tes]
         text = tx.process(job_desc_dir+tes, encoding='ascii')
         text = str(text, 'utf-8')
         temp.append(text)
